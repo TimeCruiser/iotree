@@ -1,0 +1,24 @@
+# How to install:
+#   - link or copy this file to /etc/systemd/system
+#   - adjust WorkingDirectory below
+#   - sudo systemctl enable iotree-led.service
+#   - sudo service iotree-led start
+
+[Unit]
+Description=IoTree LED strip control service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=iotree
+Group=iotree
+WorkingDirectory=/home/iotree/repos/iotree/led-service
+ExecStart=python api.py
+SyslogIdentifier=iotree-led
+StandardOutput=syslog
+StandardError=syslog
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
