@@ -10,10 +10,10 @@ After=syslog.target network.target
 
 [Service]
 Type=simple
-User=iotree
-Group=iotree
-WorkingDirectory=/home/iotree/repos/iotree/led-service
-ExecStart=python api.py
+User=root
+Group=root
+WorkingDirectory=/home/pi/repos/iotree/led-service
+ExecStart=/usr/bin/python led-service.py
 SyslogIdentifier=iotree-led
 StandardOutput=syslog
 StandardError=syslog
