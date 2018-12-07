@@ -1,5 +1,7 @@
 # Node-RED Flow
 
+Node-RED flow integrating the low-level LED strip control with various data sources and APIs. To be deployed on the Raspberry Pi that's powering the LED strip.
+
 ## Prerequisites
 
 1. Install [Node-RED](https://nodered.org/docs/hardware/raspberrypi)
