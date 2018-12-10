@@ -156,13 +156,13 @@
         "z": "53c53a56.08c564",
         "name": "",
         "topic": "",
-        "payload": "on",
+        "payload": "rainbow_cycle",
         "payloadType": "str",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 130,
+        "x": 150,
         "y": 60,
         "wires": [
             [

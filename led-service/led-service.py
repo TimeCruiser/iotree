@@ -30,10 +30,10 @@ class LEDStrip(Resource):
         mode = request.data
         switcher = {
             'off': led_off,
-            'on': led_on
+            'rainbow_cycle': rainbow_cycle
         }
-        func = switcher.get(mode, lambda: 'invalid mode')
-        result = func()
+        func = switcher.get(mode, lambda pixels: 'invalid mode')
+        result = func(pixels)
         return {'status': result, 'mode': mode}
 
 api.add_resource(LEDStrip, '/led')
@@ -49,9 +49,9 @@ def wheel(pos):
         pos -= 170
         return Adafruit_WS2801.RGB_to_color(0, pos * 3, 255 - pos * 3)
 
-def rainbow_cycle(pixels, wait=0.005):
+def rainbow_cycle(pixels, wait=0.01):
     j = 0
-    while mode == "on":
+    while mode == "rainbow_cycle":
         for i in range(pixels.count()):
             pixels.set_pixel(i, wheel(((i * 256 // pixels.count()) + j) % 256) )
         pixels.show()
@@ -61,12 +61,9 @@ def rainbow_cycle(pixels, wait=0.005):
         j = (j+1) % 256
     pixels.clear()
     pixels.show()
-
-def led_on():
-    rainbow_cycle(pixels, wait=0.01)
     return 'ok'
 
-def led_off():
+def led_off(pixels):
     pixels.clear()
     pixels.show()
     return 'ok'
