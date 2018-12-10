@@ -3,6 +3,7 @@ from flask_restful import Resource, Api
 from flask import request
 import time
 import RPi.GPIO as GPIO
+import random
  
 # Import the WS2801 module.
 import Adafruit_WS2801
@@ -31,7 +32,8 @@ class LEDStrip(Resource):
         switcher = {
             'off': led_off,
             'rainbow_cycle': rainbow_cycle,
-            'flash_colors': flash_colors
+            'flash_colors': flash_colors,
+            'eiffel_tower': eiffel_tower
         }
         func = switcher.get(mode, lambda pixels: 'invalid mode')
         result = func(pixels)
@@ -89,6 +91,18 @@ def flash_colors(pixels):
     pixels.clear()
     pixels.show()
     return 'ok'
+
+def eiffel_tower(pixels):
+    white = Adafruit_WS2801.RGB_to_color(255, 255, 255)
+    while mode == "eiffel_tower":
+        for i in range(20):
+            j = random.randint(0, pixels.count()-1)
+            pixels.set_pixel(j, white)
+        pixels.show()
+        time.sleep(0.02)
+        pixels.clear()
+        pixels.show()
+        time.sleep(0.02)
 
 def led_off(pixels):
     pixels.clear()
