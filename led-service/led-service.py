@@ -30,7 +30,8 @@ class LEDStrip(Resource):
         mode = request.data
         switcher = {
             'off': led_off,
-            'rainbow_cycle': rainbow_cycle
+            'rainbow_cycle': rainbow_cycle,
+            'flash_colors': flash_colors
         }
         func = switcher.get(mode, lambda pixels: 'invalid mode')
         result = func(pixels)
@@ -59,6 +60,32 @@ def rainbow_cycle(pixels, wait=0.01):
             time.sleep(wait)
         # continuously cycle through all 256 colors in the wheel
         j = (j+1) % 256
+    pixels.clear()
+    pixels.show()
+    return 'ok'
+
+def flash_color(pixels, blink_times=5, wait=0.5, color=(255,0,0)):
+    for i in range(blink_times):
+        if mode != "flash_colors":
+            break
+        # blink two times, then wait
+        pixels.clear()
+        for j in range(3):
+            for k in range(pixels.count()):
+                pixels.set_pixel(k, Adafruit_WS2801.RGB_to_color( color[0], color[1], color[2] ))
+            pixels.show()
+            time.sleep(0.08)
+            pixels.clear()
+            pixels.show()
+            time.sleep(0.08)
+        time.sleep(wait)
+
+def flash_colors(pixels):
+    while mode == "flash_colors":
+        for i in range(3):
+            flash_color(pixels, blink_times = 1, color=(255, 0, 0))
+            flash_color(pixels, blink_times = 1, color=(0, 255, 0))
+            flash_color(pixels, blink_times = 1, color=(0, 0, 255))
     pixels.clear()
     pixels.show()
     return 'ok'

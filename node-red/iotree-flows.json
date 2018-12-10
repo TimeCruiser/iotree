@@ -128,8 +128,8 @@
         "ret": "obj",
         "url": "http://localhost:5000/led",
         "tls": "",
-        "x": 300,
-        "y": 100,
+        "x": 340,
+        "y": 120,
         "wires": [
             [
                 "46a8327d.07f8fc"
@@ -146,8 +146,8 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 540,
-        "y": 140,
+        "x": 580,
+        "y": 160,
         "wires": []
     },
     {
@@ -183,7 +183,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 130,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "f99427e3.fa5248"
@@ -199,8 +199,8 @@
         "ret": "obj",
         "url": "http://localhost:5000/led",
         "tls": "",
-        "x": 300,
-        "y": 200,
+        "x": 340,
+        "y": 240,
         "wires": [
             [
                 "46a8327d.07f8fc"
@@ -220,10 +220,30 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 130,
-        "y": 200,
+        "y": 240,
         "wires": [
             [
                 "2dba8214.34255e"
+            ]
+        ]
+    },
+    {
+        "id": "6e7b22fc.0c5e14",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "",
+        "topic": "",
+        "payload": "flash_colors",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "f99427e3.fa5248"
             ]
         ]
     }
