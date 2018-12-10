@@ -66,6 +66,8 @@ def led_on():
     return 'ok'
 
 def led_off():
+    pixels.clear()
+    pixels.show()
     return 'ok'
 
 if __name__ == '__main__':
