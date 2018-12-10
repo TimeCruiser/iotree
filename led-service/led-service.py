@@ -50,14 +50,15 @@ def wheel(pos):
         return Adafruit_WS2801.RGB_to_color(0, pos * 3, 255 - pos * 3)
 
 def rainbow_cycle(pixels, wait=0.005):
-    for j in range(256): # one cycle of all 256 colors in the wheel
-        if mode != "on":
-            break
+    j = 0
+    while mode == "on":
         for i in range(pixels.count()):
             pixels.set_pixel(i, wheel(((i * 256 // pixels.count()) + j) % 256) )
         pixels.show()
         if wait > 0:
             time.sleep(wait)
+        # continuously cycle through all 256 colors in the wheel
+        j = (j+1) % 256
     pixels.clear()
     pixels.show()
 
