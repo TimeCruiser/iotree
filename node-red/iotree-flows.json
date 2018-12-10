@@ -183,7 +183,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 130,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "f99427e3.fa5248"
@@ -200,7 +200,7 @@
         "url": "http://localhost:5000/led",
         "tls": "",
         "x": 340,
-        "y": 240,
+        "y": 320,
         "wires": [
             [
                 "46a8327d.07f8fc"
@@ -220,7 +220,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 130,
-        "y": 240,
+        "y": 320,
         "wires": [
             [
                 "2dba8214.34255e"
@@ -241,6 +241,26 @@
         "onceDelay": 0.1,
         "x": 150,
         "y": 120,
+        "wires": [
+            [
+                "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "5247b0d3.dd7e4",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "",
+        "topic": "",
+        "payload": "eiffel_tower",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 150,
+        "y": 180,
         "wires": [
             [
                 "f99427e3.fa5248"
