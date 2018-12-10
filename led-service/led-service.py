@@ -72,4 +72,4 @@ if __name__ == '__main__':
     pixels.show()  # Make sure to call show() after changing any pixels!
 
     # Start the web server
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, threaded=True, host='0.0.0.0')
