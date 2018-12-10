@@ -103,6 +103,7 @@ def eiffel_tower(pixels):
         pixels.clear()
         pixels.show()
         time.sleep(0.02)
+    return 'ok'
 
 def led_off(pixels):
     pixels.clear()
