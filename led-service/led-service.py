@@ -51,19 +51,21 @@ def wheel(pos):
 
 def rainbow_cycle(pixels, wait=0.005):
     for j in range(256): # one cycle of all 256 colors in the wheel
+        if mode != "on":
+            break
         for i in range(pixels.count()):
             pixels.set_pixel(i, wheel(((i * 256 // pixels.count()) + j) % 256) )
         pixels.show()
         if wait > 0:
             time.sleep(wait)
+    pixels.clear()
+    pixels.show()
 
 def led_on():
     rainbow_cycle(pixels, wait=0.01)
     return 'ok'
 
 def led_off():
-    pixels.clear()
-    pixels.show()
     return 'ok'
 
 if __name__ == '__main__':
