@@ -584,15 +584,16 @@
         "type": "twitter in",
         "z": "53c53a56.08c564",
         "twitter": "4716205d.482668",
-        "tags": "@IBM_IndustryLab",
+        "tags": "@IBM_IndustryLab,#IndustryLab,#iotree",
         "user": "false",
-        "name": "about @IBM_IndustryLab",
+        "name": "about Industry Lab",
         "inputs": 0,
-        "x": 250,
+        "x": 230,
         "y": 360,
         "wires": [
             [
-                "ef783ae.f6437c8"
+                "ef783ae.f6437c8",
+                "5e9c802d.bf1ea"
             ]
         ]
     },
@@ -634,8 +635,23 @@
         "y": 420,
         "wires": [
             [
-                "ef783ae.f6437c8"
+                "ef783ae.f6437c8",
+                "5e9c802d.bf1ea"
             ]
         ]
+    },
+    {
+        "id": "5e9c802d.bf1ea",
+        "type": "debug",
+        "z": "53c53a56.08c564",
+        "name": "Tweet received",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 480,
+        "y": 360,
+        "wires": []
     }
 ]
