@@ -183,6 +183,12 @@
         "shared": false
     },
     {
+        "id": "4716205d.482668",
+        "type": "twitter-credentials",
+        "z": "",
+        "screen_name": "TobiStoeckel"
+    },
+    {
         "id": "f99427e3.fa5248",
         "type": "http request",
         "z": "53c53a56.08c564",
@@ -191,7 +197,7 @@
         "ret": "obj",
         "url": "http://localhost:5000/led",
         "tls": "",
-        "x": 620,
+        "x": 720,
         "y": 240,
         "wires": [
             [
@@ -209,7 +215,7 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 860,
+        "x": 960,
         "y": 280,
         "wires": []
     },
@@ -225,7 +231,7 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 210,
+        "x": 310,
         "y": 120,
         "wires": [
             [
@@ -245,8 +251,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 210,
-        "y": 360,
+        "x": 310,
+        "y": 480,
         "wires": [
             [
                 "56b957ed.4ef1f"
@@ -262,8 +268,8 @@
         "ret": "obj",
         "url": "http://localhost:5000/led",
         "tls": "",
-        "x": 620,
-        "y": 520,
+        "x": 720,
+        "y": 580,
         "wires": [
             [
                 "46a8327d.07f8fc"
@@ -282,8 +288,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 470,
-        "y": 520,
+        "x": 570,
+        "y": 580,
         "wires": [
             [
                 "2dba8214.34255e"
@@ -302,7 +308,7 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 210,
+        "x": 310,
         "y": 200,
         "wires": [
             [
@@ -322,7 +328,7 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 210,
+        "x": 310,
         "y": 280,
         "wires": [
             [
@@ -348,7 +354,7 @@
         "payload": "",
         "payloadType": "date",
         "topic": "",
-        "x": 180,
+        "x": 280,
         "y": 160,
         "wires": [
             [
@@ -374,7 +380,7 @@
         "payload": "",
         "payloadType": "date",
         "topic": "",
-        "x": 190,
+        "x": 290,
         "y": 240,
         "wires": [
             [
@@ -400,7 +406,7 @@
         "payload": "",
         "payloadType": "date",
         "topic": "",
-        "x": 190,
+        "x": 290,
         "y": 320,
         "wires": [
             [
@@ -426,8 +432,8 @@
         "payload": "",
         "payloadType": "date",
         "topic": "",
-        "x": 210,
-        "y": 400,
+        "x": 310,
+        "y": 520,
         "wires": [
             [
                 "56b957ed.4ef1f"
@@ -453,7 +459,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
+        "x": 480,
         "y": 140,
         "wires": [
             [
@@ -480,7 +486,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
+        "x": 470,
         "y": 220,
         "wires": [
             [
@@ -507,7 +513,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
+        "x": 470,
         "y": 300,
         "wires": [
             [
@@ -534,8 +540,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 350,
-        "y": 380,
+        "x": 450,
+        "y": 500,
         "wires": [
             [
                 "f99427e3.fa5248"
@@ -552,7 +558,7 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 460,
+        "x": 560,
         "y": 60,
         "wires": []
     },
@@ -564,12 +570,71 @@
         "topic": "iot-2/cmd/set-mode/fmt/txt",
         "qos": "2",
         "broker": "222041e2.611686",
-        "x": 210,
+        "x": 310,
         "y": 60,
         "wires": [
             [
                 "66cbb438.06c4dc",
                 "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "ef4e509b.59758",
+        "type": "twitter in",
+        "z": "53c53a56.08c564",
+        "twitter": "4716205d.482668",
+        "tags": "@IBM_IndustryLab",
+        "user": "false",
+        "name": "about @IBM_IndustryLab",
+        "inputs": 0,
+        "x": 250,
+        "y": 360,
+        "wires": [
+            [
+                "ef783ae.f6437c8"
+            ]
+        ]
+    },
+    {
+        "id": "ef783ae.f6437c8",
+        "type": "trigger",
+        "z": "53c53a56.08c564",
+        "op1": "eiffel_tower",
+        "op2": "rainbow_cycle",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "c80dfff1.4e66d",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "Test",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "ef783ae.f6437c8"
             ]
         ]
     }
