@@ -33,7 +33,8 @@ class LEDStrip(Resource):
             'off': led_off,
             'rainbow_cycle': rainbow_cycle,
             'flash_colors': flash_colors,
-            'eiffel_tower': eiffel_tower
+            'eiffel_tower': eiffel_tower,
+            'flame': flame
         }
         func = switcher.get(mode, lambda pixels: 'invalid mode')
         result = func(pixels)
@@ -62,6 +63,27 @@ def rainbow_cycle(pixels, wait=0.01):
             time.sleep(wait)
         # continuously cycle through all 256 colors in the wheel
         j = (j+1) % 256
+    pixels.clear()
+    pixels.show()
+    return 'ok'
+
+def flame(pixels, wait=0.1):
+    j = 0
+    while mode == "flame":
+        for j in range(20,60):
+            for i in range(pixels.count()):
+                color = Adafruit_WS2801.RGB_to_color(255,j,0)
+                pixels.set_pixel(i, color)
+            pixels.show()
+            if wait > 0:
+                time.sleep(wait)
+        for j in range(60,20,-1):
+            for i in range(pixels.count()):
+                color = Adafruit_WS2801.RGB_to_color(255,j,0)
+                pixels.set_pixel(i, color)
+            pixels.show()
+            if wait > 0:
+                time.sleep(wait)
     pixels.clear()
     pixels.show()
     return 'ok'

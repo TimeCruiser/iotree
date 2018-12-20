@@ -252,7 +252,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 310,
-        "y": 480,
+        "y": 560,
         "wires": [
             [
                 "56b957ed.4ef1f"
@@ -269,7 +269,7 @@
         "url": "http://localhost:5000/led",
         "tls": "",
         "x": 720,
-        "y": 580,
+        "y": 660,
         "wires": [
             [
                 "46a8327d.07f8fc"
@@ -289,7 +289,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 570,
-        "y": 580,
+        "y": 660,
         "wires": [
             [
                 "2dba8214.34255e"
@@ -433,7 +433,7 @@
         "payloadType": "date",
         "topic": "",
         "x": 310,
-        "y": 520,
+        "y": 600,
         "wires": [
             [
                 "56b957ed.4ef1f"
@@ -541,7 +541,7 @@
         "to": "",
         "reg": false,
         "x": 450,
-        "y": 500,
+        "y": 580,
         "wires": [
             [
                 "f99427e3.fa5248"
@@ -653,5 +653,78 @@
         "x": 480,
         "y": 360,
         "wires": []
+    },
+    {
+        "id": "3e16f307.e80ddc",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "Test",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 310,
+        "y": 460,
+        "wires": [
+            [
+                "31dec8df.fef048"
+            ]
+        ]
+    },
+    {
+        "id": "6050736d.670ecc",
+        "type": "ui_button",
+        "z": "53c53a56.08c564",
+        "name": "",
+        "group": "3e4082c1.5e668e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Flame",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 310,
+        "y": 500,
+        "wires": [
+            [
+                "31dec8df.fef048"
+            ]
+        ]
+    },
+    {
+        "id": "31dec8df.fef048",
+        "type": "change",
+        "z": "53c53a56.08c564",
+        "name": "flame",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "flame",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 480,
+        "wires": [
+            [
+                "f99427e3.fa5248"
+            ]
+        ]
     }
 ]
