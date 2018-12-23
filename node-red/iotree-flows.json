@@ -592,8 +592,7 @@
         "y": 360,
         "wires": [
             [
-                "ef783ae.f6437c8",
-                "5e9c802d.bf1ea"
+                "ef783ae.f6437c8"
             ]
         ]
     },
@@ -724,6 +723,71 @@
         "wires": [
             [
                 "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "d3ee64a2.239c28",
+        "type": "exec",
+        "z": "53c53a56.08c564",
+        "command": "sudo shutdown -h now",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 500,
+        "y": 780,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "26d21fed.23a2e",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "Shutdown",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 280,
+        "y": 780,
+        "wires": [
+            [
+                "d3ee64a2.239c28"
+            ]
+        ]
+    },
+    {
+        "id": "ddf6c146.51cef",
+        "type": "ui_button",
+        "z": "53c53a56.08c564",
+        "name": "",
+        "group": "3e4082c1.5e668e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Shutdown",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 280,
+        "y": 740,
+        "wires": [
+            [
+                "d3ee64a2.239c28"
             ]
         ]
     }
