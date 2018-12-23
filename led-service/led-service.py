@@ -35,7 +35,8 @@ class LEDStrip(Resource):
             'rainbow_cycle': rainbow_cycle,
             'flash_colors': flash_colors,
             'eiffel_tower': eiffel_tower,
-            'flame': flame
+            'flame': flame,
+            'solid_color': solid_color
         }
         func = switcher.get(mode, lambda pixels: 'invalid mode')
         result = func(pixels, params)
@@ -126,6 +127,13 @@ def eiffel_tower(pixels, params):
         pixels.clear()
         pixels.show()
         time.sleep(0.02)
+    return 'ok'
+
+def solid_color(pixels, params):
+    color = Adafruit_WS2801.RGB_to_color(params['r'], params['g'], params['b'])
+    for i in range(pixels.count()):
+        pixels.set_pixel(i, color)
+    pixels.show()
     return 'ok'
 
 def led_off(pixels, params):

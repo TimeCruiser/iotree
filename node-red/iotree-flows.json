@@ -268,8 +268,8 @@
         "ret": "obj",
         "url": "http://localhost:5000/led",
         "tls": "",
-        "x": 720,
-        "y": 660,
+        "x": 880,
+        "y": 400,
         "wires": [
             [
                 "46a8327d.07f8fc"
@@ -288,8 +288,8 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 570,
-        "y": 660,
+        "x": 730,
+        "y": 400,
         "wires": [
             [
                 "2dba8214.34255e"
@@ -787,6 +787,53 @@
         "wires": [
             [
                 "d3ee64a2.239c28"
+            ]
+        ]
+    },
+    {
+        "id": "771e0b95.f55404",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "Green",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 310,
+        "y": 660,
+        "wires": [
+            [
+                "542b3073.a0ad2"
+            ]
+        ]
+    },
+    {
+        "id": "542b3073.a0ad2",
+        "type": "change",
+        "z": "53c53a56.08c564",
+        "name": "solid green",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"mode\":\"solid_color\",\"params\":{\"r\":0,\"g\":255,\"b\":0}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 660,
+        "wires": [
+            [
+                "f99427e3.fa5248"
             ]
         ]
     }
