@@ -36,7 +36,8 @@ class LEDStrip(Resource):
             'flash_colors': flash_colors,
             'eiffel_tower': eiffel_tower,
             'flame': flame,
-            'solid_color': solid_color
+            'solid_color': solid_color,
+            'candle': candle,
         }
         func = switcher.get(mode, lambda pixels: 'invalid mode')
         result = func(pixels, params)
@@ -133,6 +134,30 @@ def solid_color(pixels, params):
     color = Adafruit_WS2801.RGB_to_color(params['r'], params['g'], params['b'])
     for i in range(0, pixels.count(), 4):
         pixels.set_pixel(i, color)
+    pixels.show()
+    return 'ok'
+
+def flicker_update(value, amp, decay, prob):
+    if prob > random.random():
+        return -float(amp)
+    else:
+        return -float(decay) * value
+
+def candle(pixels, params):
+    flicker_states = [0.0 for _ in range(pixels.count())]
+    while mode == "candle":
+        for index in range(0, pixels.count(), params["sparsity"]):
+            flicker_states[index] = flicker_update(
+                flicker_states[index],
+                params["amp"],
+                params["decay"],
+                float(params["period"]) / params["interval"]
+            )
+            rgb = [int(params[key] * (1 + flicker_states[index])) for key in "rgb"]
+            pixels.set_pixel(index, Adafruit_WS2801.RGB_to_color(*rgb))
+        time.sleep(params["period"])
+        pixels.show()
+    pixels.clear()
     pixels.show()
     return 'ok'
 
