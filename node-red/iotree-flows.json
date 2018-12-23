@@ -450,8 +450,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "rainbow_cycle",
-                "tot": "str"
+                "to": "{\"mode\":\"rainbow_cycle\", \"params\": {}}",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -477,8 +477,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "flash_colors",
-                "tot": "str"
+                "to": "{\"mode\": \"flash_colors\", \"params\": {}}",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -504,8 +504,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "eiffel_tower",
-                "tot": "str"
+                "to": "{\"mode\": \"eiffel_tower\", \"params\": {}}",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -531,8 +531,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "off",
-                "tot": "str"
+                "to": "{\"mode\": \"off\", \"params\": {}}",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -708,8 +708,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "flame",
-                "tot": "str"
+                "to": "{\"mode\": \"flame\", \"params\": {}}",
+                "tot": "json"
             }
         ],
         "action": "",
