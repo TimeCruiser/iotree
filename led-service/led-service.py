@@ -28,16 +28,18 @@ class LEDStrip(Resource):
         return {'mode': mode}
     def put(self):
         global mode
-        mode = request.data
+        mode = request.json['mode']
+        params = request.json['params']
         switcher = {
             'off': led_off,
             'rainbow_cycle': rainbow_cycle,
             'flash_colors': flash_colors,
             'eiffel_tower': eiffel_tower,
-            'flame': flame
+            'flame': flame,
+            'solid_color': solid_color
         }
         func = switcher.get(mode, lambda pixels: 'invalid mode')
-        result = func(pixels)
+        result = func(pixels, params)
         return {'status': result, 'mode': mode}
 
 api.add_resource(LEDStrip, '/led')
@@ -53,7 +55,7 @@ def wheel(pos):
         pos -= 170
         return Adafruit_WS2801.RGB_to_color(0, pos * 3, 255 - pos * 3)
 
-def rainbow_cycle(pixels, wait=0.01):
+def rainbow_cycle(pixels, params, wait=0.01):
     j = 0
     while mode == "rainbow_cycle":
         for i in range(pixels.count()):
@@ -67,7 +69,7 @@ def rainbow_cycle(pixels, wait=0.01):
     pixels.show()
     return 'ok'
 
-def flame(pixels, wait=0.1):
+def flame(pixels, params, wait=0.1):
     j = 0
     while mode == "flame":
         for j in range(20,60):
@@ -104,7 +106,7 @@ def flash_color(pixels, blink_times=5, wait=0.5, color=(255,0,0)):
             time.sleep(0.08)
         time.sleep(wait)
 
-def flash_colors(pixels):
+def flash_colors(pixels, params):
     while mode == "flash_colors":
         for i in range(3):
             flash_color(pixels, blink_times = 1, color=(255, 0, 0))
@@ -114,12 +116,12 @@ def flash_colors(pixels):
     pixels.show()
     return 'ok'
 
-def eiffel_tower(pixels):
-    white = Adafruit_WS2801.RGB_to_color(255, 255, 255)
+def eiffel_tower(pixels, params):
+    color = Adafruit_WS2801.RGB_to_color(params['r'], params['g'], params['b'])
     while mode == "eiffel_tower":
         for i in range(20):
             j = random.randint(0, pixels.count()-1)
-            pixels.set_pixel(j, white)
+            pixels.set_pixel(j, color)
         pixels.show()
         time.sleep(0.02)
         pixels.clear()
@@ -127,7 +129,15 @@ def eiffel_tower(pixels):
         time.sleep(0.02)
     return 'ok'
 
-def led_off(pixels):
+def solid_color(pixels, params):
+    color = Adafruit_WS2801.RGB_to_color(params['r'], params['g'], params['b'])
+    for i in range(0, pixels.count(), 4):
+        pixels.set_pixel(i, color)
+    pixels.show()
+    return 'ok'
+
+def led_off(pixels, params):
+    mode = 'off'
     pixels.clear()
     pixels.show()
     return 'ok'
