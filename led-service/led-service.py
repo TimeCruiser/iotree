@@ -131,7 +131,7 @@ def eiffel_tower(pixels, params):
 
 def solid_color(pixels, params):
     color = Adafruit_WS2801.RGB_to_color(params['r'], params['g'], params['b'])
-    for i in range(pixels.count()):
+    for i in range(0, pixels.count(), 4):
         pixels.set_pixel(i, color)
     pixels.show()
     return 'ok'
