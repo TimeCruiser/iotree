@@ -437,7 +437,7 @@
         "z": "53c53a56.08c564",
         "name": "",
         "group": "3e4082c1.5e668e",
-        "order": 4,
+        "order": 6,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -690,32 +690,6 @@
         ]
     },
     {
-        "id": "6050736d.670ecc",
-        "type": "ui_button",
-        "z": "53c53a56.08c564",
-        "name": "",
-        "group": "3e4082c1.5e668e",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Flame",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "",
-        "x": 310,
-        "y": 500,
-        "wires": [
-            [
-                "31dec8df.fef048"
-            ]
-        ]
-    },
-    {
         "id": "31dec8df.fef048",
         "type": "change",
         "z": "53c53a56.08c564",
@@ -787,14 +761,14 @@
         "z": "53c53a56.08c564",
         "name": "",
         "group": "3e4082c1.5e668e",
-        "order": 5,
+        "order": 7,
         "width": 0,
         "height": 0,
         "passthru": false,
         "label": "Shutdown",
         "tooltip": "",
-        "color": "",
-        "bgcolor": "",
+        "color": "white",
+        "bgcolor": "#7d0a0a",
         "icon": "",
         "payload": "",
         "payloadType": "str",
@@ -820,7 +794,7 @@
         "once": false,
         "onceDelay": 0.1,
         "x": 310,
-        "y": 660,
+        "y": 640,
         "wires": [
             [
                 "542b3073.a0ad2"
@@ -837,7 +811,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"mode\":\"candle\",\"params\":{\"r\":100,\"g\":0,\"b\":0,\"period\":0.05,\"decay\":0.9,\"amp\":0.5,\"interval\":20,\"sparsity\":5}}",
+                "to": "{\"mode\":\"candle\",\"params\":{\"r\":100,\"g\":10,\"b\":0,\"period\":0.05,\"decay\":0.9,\"amp\":0.5,\"interval\":20,\"sparsity\":5}}",
                 "tot": "json"
             }
         ],
@@ -862,11 +836,11 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "repeat": "300",
+        "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": 0.1,
-        "x": 210,
+        "x": 200,
         "y": 180,
         "wires": [
             [
@@ -978,7 +952,7 @@
         "z": "b2ad8d55.9a0ba",
         "name": "",
         "topic": "",
-        "payload": "1900",
+        "payload": "1200",
         "payloadType": "num",
         "repeat": "",
         "crontab": "",
@@ -996,15 +970,16 @@
         "id": "85a4a5e8.1c0f48",
         "type": "function",
         "z": "b2ad8d55.9a0ba",
-        "name": "solid_color",
-        "func": "msg.payload = {\n    mode: \"solid_color\",\n    params: msg.payload\n}\nreturn msg;",
+        "name": "Prepare Candle Mode",
+        "func": "// Dim color for candle mode\nconst lightness = 0.4\n\nmsg.payload = {\n    \"mode\": \"candle\",\n    \"params\": {\n        \"r\": Math.round(msg.payload.r * lightness),\n        \"g\": Math.round(msg.payload.g * lightness),\n        \"b\": Math.round(msg.payload.b * lightness),\n        \"period\": 0.05,\n        \"decay\": 0.9,\n        \"amp\": 0.5,\n        \"interval\": 20,\n        \"sparsity\": 5\n    }\n}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 1010,
+        "x": 1040,
         "y": 180,
         "wires": [
             [
-                "2694b0ee.4b77b"
+                "2694b0ee.4b77b",
+                "f5f6481.af6c3b8"
             ]
         ]
     },
@@ -1016,7 +991,7 @@
         "links": [
             "ccd51816.47c338"
         ],
-        "x": 1135,
+        "x": 1195,
         "y": 180,
         "wires": []
     },
@@ -1033,6 +1008,46 @@
         "wires": [
             [
                 "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "f5f6481.af6c3b8",
+        "type": "debug",
+        "z": "b2ad8d55.9a0ba",
+        "name": "Netatmo Candle",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1240,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e04fb51d.8610c8",
+        "type": "ui_button",
+        "z": "53c53a56.08c564",
+        "name": "",
+        "group": "3e4082c1.5e668e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Candle",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 300,
+        "y": 680,
+        "wires": [
+            [
+                "542b3073.a0ad2"
             ]
         ]
     }
