@@ -811,7 +811,7 @@
         "id": "771e0b95.f55404",
         "type": "inject",
         "z": "53c53a56.08c564",
-        "name": "Green",
+        "name": "Candle",
         "topic": "",
         "payload": "",
         "payloadType": "date",
@@ -831,13 +831,13 @@
         "id": "542b3073.a0ad2",
         "type": "change",
         "z": "53c53a56.08c564",
-        "name": "solid green",
+        "name": "candle",
         "rules": [
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"mode\":\"solid_color\",\"params\":{\"r\":100,\"g\":0,\"b\":0}}",
+                "to": "{\"mode\":\"candle\",\"params\":{\"r\":100,\"g\":0,\"b\":0,\"period\":0.05,\"decay\":0.9,\"amp\":0.5,\"interval\":20,\"sparsity\":5}}",
                 "tot": "json"
             }
         ],
@@ -846,7 +846,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 470,
+        "x": 450,
         "y": 660,
         "wires": [
             [
@@ -978,7 +978,7 @@
         "z": "b2ad8d55.9a0ba",
         "name": "",
         "topic": "",
-        "payload": "1200",
+        "payload": "1900",
         "payloadType": "num",
         "repeat": "",
         "crontab": "",
