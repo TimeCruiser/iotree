@@ -117,11 +117,11 @@ def flash_colors(pixels, params):
     return 'ok'
 
 def eiffel_tower(pixels, params):
-    white = Adafruit_WS2801.RGB_to_color(255, 255, 255)
+    color = Adafruit_WS2801.RGB_to_color(params['r'], params['g'], params['b'])
     while mode == "eiffel_tower":
         for i in range(20):
             j = random.randint(0, pixels.count()-1)
-            pixels.set_pixel(j, white)
+            pixels.set_pixel(j, color)
         pixels.show()
         time.sleep(0.02)
         pixels.clear()
