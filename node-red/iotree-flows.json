@@ -2,7 +2,14 @@
     {
         "id": "53c53a56.08c564",
         "type": "tab",
-        "label": "Integrations",
+        "label": "Dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b2ad8d55.9a0ba",
+        "type": "tab",
+        "label": "Netatmo",
         "disabled": false,
         "info": ""
     },
@@ -10,18 +17,193 @@
         "id": "6363179b.a1c6b8",
         "type": "ui_tab",
         "z": "",
-        "name": "Home",
+        "name": "Watson IoTree",
         "icon": "dashboard"
     },
     {
         "id": "3e4082c1.5e668e",
         "type": "ui_group",
         "z": "",
-        "name": "Default",
+        "name": "Control",
         "tab": "6363179b.a1c6b8",
         "disp": true,
         "width": "6",
         "collapse": false
+    },
+    {
+        "id": "ffbdf57f.eea1e8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#000000",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "721187de.4f9b7",
+        "type": "tls-config",
+        "z": "",
+        "name": "No Verify",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "",
+        "keyname": "",
+        "caname": "",
+        "servername": "",
+        "verifyservercert": false
+    },
+    {
+        "id": "9c9b1250.68a46",
+        "type": "wiotp-credentials",
+        "z": "",
+        "name": "iotree-1",
+        "org": "tkswmp",
+        "serverName": "",
+        "devType": "IoTree",
+        "devId": "iotree-1",
+        "keepalive": "60",
+        "cleansession": true,
+        "tls": "721187de.4f9b7",
+        "usetls": true
+    },
+    {
+        "id": "222041e2.611686",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "iotree-1",
+        "broker": "tkswmp.messaging.internetofthings.ibmcloud.com",
+        "port": "8883",
+        "tls": "721187de.4f9b7",
+        "clientid": "d:tkswmp:IoTree:iotree-1",
+        "usetls": true,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "25a9aa68.9feeee",
+        "type": "ibmiot",
+        "z": "",
+        "name": "IoTree App",
+        "keepalive": "60",
+        "serverName": "",
+        "cleansession": true,
+        "appId": "",
+        "shared": false
+    },
+    {
+        "id": "4716205d.482668",
+        "type": "twitter-credentials",
+        "z": "",
+        "screen_name": "TobiStoeckel"
+    },
+    {
+        "id": "2e48c3ef.7b930c",
+        "type": "configNode",
+        "z": "",
+        "client_id": "5abf74a3902a404d148b706a",
+        "client_secret": "Uxz8W8JvIIdNeBotcz02Bzf96YdHM0CwkHSwdOvZ9PP",
+        "username": "kstckel@gmail.com",
+        "password": "aFE!k!$uUc.v?GrE",
+        "device_id": ""
     },
     {
         "id": "f99427e3.fa5248",
@@ -32,8 +214,8 @@
         "ret": "obj",
         "url": "http://localhost:5000/led",
         "tls": "",
-        "x": 300,
-        "y": 100,
+        "x": 720,
+        "y": 240,
         "wires": [
             [
                 "46a8327d.07f8fc"
@@ -50,27 +232,27 @@
         "console": false,
         "tostatus": false,
         "complete": "payload",
-        "x": 540,
-        "y": 140,
+        "x": 960,
+        "y": 280,
         "wires": []
     },
     {
         "id": "11a30799.b55fa8",
         "type": "inject",
         "z": "53c53a56.08c564",
-        "name": "",
+        "name": "Test",
         "topic": "",
-        "payload": "on",
-        "payloadType": "str",
+        "payload": "",
+        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 130,
-        "y": 60,
+        "x": 310,
+        "y": 120,
         "wires": [
             [
-                "f99427e3.fa5248"
+                "950965e5.c6daa"
             ]
         ]
     },
@@ -78,19 +260,19 @@
         "id": "672fefba.6df82",
         "type": "inject",
         "z": "53c53a56.08c564",
-        "name": "",
+        "name": "Test",
         "topic": "",
-        "payload": "off",
-        "payloadType": "str",
+        "payload": "",
+        "payloadType": "date",
         "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 130,
-        "y": 140,
+        "x": 310,
+        "y": 560,
         "wires": [
             [
-                "f99427e3.fa5248"
+                "56b957ed.4ef1f"
             ]
         ]
     },
@@ -103,8 +285,8 @@
         "ret": "obj",
         "url": "http://localhost:5000/led",
         "tls": "",
-        "x": 300,
-        "y": 200,
+        "x": 880,
+        "y": 400,
         "wires": [
             [
                 "46a8327d.07f8fc"
@@ -123,11 +305,749 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "x": 130,
-        "y": 200,
+        "x": 730,
+        "y": 400,
         "wires": [
             [
                 "2dba8214.34255e"
+            ]
+        ]
+    },
+    {
+        "id": "6e7b22fc.0c5e14",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "Test",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 310,
+        "y": 200,
+        "wires": [
+            [
+                "4c1d0fa3.7a8a3"
+            ]
+        ]
+    },
+    {
+        "id": "5247b0d3.dd7e4",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "Test",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 310,
+        "y": 280,
+        "wires": [
+            [
+                "7a759bc7.d9c2ac"
+            ]
+        ]
+    },
+    {
+        "id": "1cc8a00c.0c4f3",
+        "type": "ui_button",
+        "z": "53c53a56.08c564",
+        "name": "",
+        "group": "3e4082c1.5e668e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Rainbow Cycle",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 280,
+        "y": 160,
+        "wires": [
+            [
+                "950965e5.c6daa"
+            ]
+        ]
+    },
+    {
+        "id": "e72b27ba.5a9d78",
+        "type": "ui_button",
+        "z": "53c53a56.08c564",
+        "name": "",
+        "group": "3e4082c1.5e668e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Flash Colors",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "4c1d0fa3.7a8a3"
+            ]
+        ]
+    },
+    {
+        "id": "bd5577f4.6e58a",
+        "type": "ui_button",
+        "z": "53c53a56.08c564",
+        "name": "",
+        "group": "3e4082c1.5e668e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Eiffel Tower",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 290,
+        "y": 320,
+        "wires": [
+            [
+                "7a759bc7.d9c2ac"
+            ]
+        ]
+    },
+    {
+        "id": "f2b19912.9c9678",
+        "type": "ui_button",
+        "z": "53c53a56.08c564",
+        "name": "",
+        "group": "3e4082c1.5e668e",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Off",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "",
+        "x": 310,
+        "y": 600,
+        "wires": [
+            [
+                "56b957ed.4ef1f"
+            ]
+        ]
+    },
+    {
+        "id": "950965e5.c6daa",
+        "type": "change",
+        "z": "53c53a56.08c564",
+        "name": "rainbow_cycle",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"mode\":\"rainbow_cycle\", \"params\": {}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "4c1d0fa3.7a8a3",
+        "type": "change",
+        "z": "53c53a56.08c564",
+        "name": "flash_colors",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"mode\": \"flash_colors\", \"params\": {}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 220,
+        "wires": [
+            [
+                "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "7a759bc7.d9c2ac",
+        "type": "change",
+        "z": "53c53a56.08c564",
+        "name": "eiffel_tower",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"mode\":\"eiffel_tower\",\"params\":{\"r\":255,\"g\":0,\"b\":0}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 300,
+        "wires": [
+            [
+                "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "56b957ed.4ef1f",
+        "type": "change",
+        "z": "53c53a56.08c564",
+        "name": "off",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"mode\": \"off\", \"params\": {}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 580,
+        "wires": [
+            [
+                "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "66cbb438.06c4dc",
+        "type": "debug",
+        "z": "53c53a56.08c564",
+        "name": "Platform Command",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 560,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "ac3a7ab4.6c3418",
+        "type": "mqtt in",
+        "z": "53c53a56.08c564",
+        "name": "set-mode",
+        "topic": "iot-2/cmd/set-mode/fmt/txt",
+        "qos": "2",
+        "broker": "222041e2.611686",
+        "x": 310,
+        "y": 60,
+        "wires": [
+            [
+                "66cbb438.06c4dc"
+            ]
+        ]
+    },
+    {
+        "id": "ef4e509b.59758",
+        "type": "twitter in",
+        "z": "53c53a56.08c564",
+        "twitter": "4716205d.482668",
+        "tags": "@IBM_IndustryLab,#IndustryLab,#iotree",
+        "user": "false",
+        "name": "about Industry Lab",
+        "inputs": 0,
+        "x": 230,
+        "y": 360,
+        "wires": [
+            [
+                "ef783ae.f6437c8"
+            ]
+        ]
+    },
+    {
+        "id": "ef783ae.f6437c8",
+        "type": "trigger",
+        "z": "53c53a56.08c564",
+        "op1": "eiffel_tower",
+        "op2": "rainbow_cycle",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "5",
+        "extend": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "c80dfff1.4e66d",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "Test",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "ef783ae.f6437c8",
+                "5e9c802d.bf1ea"
+            ]
+        ]
+    },
+    {
+        "id": "5e9c802d.bf1ea",
+        "type": "debug",
+        "z": "53c53a56.08c564",
+        "name": "Tweet received",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 480,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "3e16f307.e80ddc",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "Test",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 310,
+        "y": 460,
+        "wires": [
+            [
+                "31dec8df.fef048"
+            ]
+        ]
+    },
+    {
+        "id": "31dec8df.fef048",
+        "type": "change",
+        "z": "53c53a56.08c564",
+        "name": "flame",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"mode\": \"flame\", \"params\": {}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 480,
+        "wires": [
+            [
+                "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "d3ee64a2.239c28",
+        "type": "exec",
+        "z": "53c53a56.08c564",
+        "command": "sudo shutdown -h now",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "oldrc": false,
+        "name": "",
+        "x": 500,
+        "y": 780,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "26d21fed.23a2e",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "Shutdown",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 280,
+        "y": 780,
+        "wires": [
+            [
+                "d3ee64a2.239c28"
+            ]
+        ]
+    },
+    {
+        "id": "ddf6c146.51cef",
+        "type": "ui_button",
+        "z": "53c53a56.08c564",
+        "name": "",
+        "group": "3e4082c1.5e668e",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Shutdown",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "#7d0a0a",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 280,
+        "y": 740,
+        "wires": [
+            [
+                "d3ee64a2.239c28"
+            ]
+        ]
+    },
+    {
+        "id": "771e0b95.f55404",
+        "type": "inject",
+        "z": "53c53a56.08c564",
+        "name": "Candle",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 310,
+        "y": 640,
+        "wires": [
+            [
+                "542b3073.a0ad2"
+            ]
+        ]
+    },
+    {
+        "id": "542b3073.a0ad2",
+        "type": "change",
+        "z": "53c53a56.08c564",
+        "name": "candle",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"mode\":\"candle\",\"params\":{\"r\":100,\"g\":10,\"b\":0,\"period\":0.05,\"decay\":0.9,\"amp\":0.5,\"interval\":20,\"sparsity\":5}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 660,
+        "wires": [
+            [
+                "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "a9203a0a.c322c8",
+        "type": "inject",
+        "z": "b2ad8d55.9a0ba",
+        "name": "Inject every 10 minutes",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "74ff2fe7.ba2c"
+            ]
+        ]
+    },
+    {
+        "id": "74ff2fe7.ba2c",
+        "type": "get stations data",
+        "z": "b2ad8d55.9a0ba",
+        "name": "Get Netatmo Data",
+        "creds": "2e48c3ef.7b930c",
+        "x": 429,
+        "y": 180,
+        "wires": [
+            [
+                "513c22fc.4630cc",
+                "5808ad0c.57a374",
+                "6882b0c4.03f4c"
+            ]
+        ]
+    },
+    {
+        "id": "5808ad0c.57a374",
+        "type": "debug",
+        "z": "b2ad8d55.9a0ba",
+        "name": "Netatmo data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 691,
+        "y": 121,
+        "wires": []
+    },
+    {
+        "id": "513c22fc.4630cc",
+        "type": "change",
+        "z": "b2ad8d55.9a0ba",
+        "name": "Extract CO2 Value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.devices[0].dashboard_data.CO2",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 642,
+        "y": 180,
+        "wires": [
+            [
+                "bf51cb94.3878e8"
+            ]
+        ]
+    },
+    {
+        "id": "6882b0c4.03f4c",
+        "type": "change",
+        "z": "b2ad8d55.9a0ba",
+        "name": "Extract noise data",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.devices[0].dashboard_data.Noise",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 644,
+        "y": 317,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf51cb94.3878e8",
+        "type": "function",
+        "z": "b2ad8d55.9a0ba",
+        "name": "Convert to Color",
+        "func": "const minCo2 = 400;\nconst maxCo2 = 2000;\n\nvar h = 0;\nvar s = 1;\nvar l = 0.5;\n\nif(msg.payload <= minCo2) {\n    h = 1/3;\n} else if(msg.payload >= maxCo2) {\n    h = 0\n} else {\n    h = (1-((msg.payload-minCo2)/(maxCo2-minCo2)))/3\n}\n\nvar r, g, b;\n\nif(s === 0){\n    r = g = b = l; // achromatic\n}else{\n    var hue2rgb = function hue2rgb(p, q, t){\n        if(t < 0) t += 1;\n        if(t > 1) t -= 1;\n        if(t < 1/6) return p + (q - p) * 6 * t;\n        if(t < 1/2) return q;\n        if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;\n        return p;\n    }\n\n    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;\n    var p = 2 * l - q;\n    r = hue2rgb(p, q, h + 1/3);\n    g = hue2rgb(p, q, h);\n    b = hue2rgb(p, q, h - 1/3);\n}\n\nmsg.payload = {\n    r: Math.round(r * 255),\n    g: Math.round(g * 255),\n    b: Math.round(b * 255) \n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 840,
+        "y": 180,
+        "wires": [
+            [
+                "85a4a5e8.1c0f48"
+            ]
+        ]
+    },
+    {
+        "id": "fc663ef0.ccdd6",
+        "type": "inject",
+        "z": "b2ad8d55.9a0ba",
+        "name": "",
+        "topic": "",
+        "payload": "1200",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 650,
+        "y": 240,
+        "wires": [
+            [
+                "bf51cb94.3878e8"
+            ]
+        ]
+    },
+    {
+        "id": "85a4a5e8.1c0f48",
+        "type": "function",
+        "z": "b2ad8d55.9a0ba",
+        "name": "Prepare Candle Mode",
+        "func": "// Dim color for candle mode\nconst lightness = 0.4\n\nmsg.payload = {\n    \"mode\": \"candle\",\n    \"params\": {\n        \"r\": Math.round(msg.payload.r * lightness),\n        \"g\": Math.round(msg.payload.g * lightness),\n        \"b\": Math.round(msg.payload.b * lightness),\n        \"period\": 0.05,\n        \"decay\": 0.9,\n        \"amp\": 0.5,\n        \"interval\": 20,\n        \"sparsity\": 5\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1040,
+        "y": 180,
+        "wires": [
+            [
+                "2694b0ee.4b77b",
+                "f5f6481.af6c3b8"
+            ]
+        ]
+    },
+    {
+        "id": "2694b0ee.4b77b",
+        "type": "link out",
+        "z": "b2ad8d55.9a0ba",
+        "name": "netatmo_out",
+        "links": [
+            "ccd51816.47c338"
+        ],
+        "x": 1195,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ccd51816.47c338",
+        "type": "link in",
+        "z": "53c53a56.08c564",
+        "name": "led_in",
+        "links": [
+            "2694b0ee.4b77b"
+        ],
+        "x": 640,
+        "y": 160,
+        "wires": [
+            [
+                "f99427e3.fa5248"
+            ]
+        ]
+    },
+    {
+        "id": "f5f6481.af6c3b8",
+        "type": "debug",
+        "z": "b2ad8d55.9a0ba",
+        "name": "Netatmo Candle",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 1240,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e04fb51d.8610c8",
+        "type": "ui_button",
+        "z": "53c53a56.08c564",
+        "name": "",
+        "group": "3e4082c1.5e668e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Candle",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 300,
+        "y": 680,
+        "wires": [
+            [
+                "542b3073.a0ad2"
             ]
         ]
     }
