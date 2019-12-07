@@ -19,7 +19,9 @@ The service must be run as root to be able to access the GPIO pins
 
 `curl -X PUT -H "Content-Type: application/json" http://localhost:5000/led -d "<mode>"`
 
-Valid values for `<mode>` are: `rainbow_cycle`, `flash_colors`, `eiffel_tower`, `off`
+Valid values for `<mode>` are: `rainbow_cycle`, `flash_colors`, `eiffel_tower`, `flame`, `candle`, `solid_color`, `off`
+
+See the Node-RED flow for usage examples, including optional parameters.
 
 **Get current operating mode**
 
