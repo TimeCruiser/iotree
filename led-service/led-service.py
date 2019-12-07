@@ -137,23 +137,44 @@ def solid_color(pixels, params):
     pixels.show()
     return 'ok'
 
-def flicker_update(value, amp, decay, prob):
-    if prob > random.random():
-        return -float(amp)
-    else:
-        return -float(decay) * value
+def clamp_to_byte(value):
+    value = int(value)
+    if value > 255:
+        return 255
+    elif value < 0:
+        return 0
+    return value
+
+class CandleState:
+
+    def __init__(self, rand_walk, flicker):
+        self.rand_walk = rand_walk
+        self.flicker = flicker
+
+    def update(self, rand_walk, flicker):
+        # Flicker process
+        if flicker["prob"] > random.random():
+            self.flicker = -float(flicker["amp"])
+        else:
+            self.flicker *= -float(flicker["decay"])
+
+        # Random walk of the base intensity
+        noise = rand_walk["noise"]
+        self.rand_walk *= float(rand_walk["decay"])
+        self.rand_walk += random.choice([-noise, noise])
+        return self
+
+    def to_rgb(self, color):
+        factor = 1 + self.flicker + self.rand_walk
+        return [clamp_to_byte(color[key] * factor) for key in "rgb"]
 
 def candle(pixels, params):
-    flicker_states = [0.0 for _ in range(pixels.count())]
+    candle_indexes = range(0, pixels.count(), params["sparsity"])
+    candle_states = [CandleState(0.0, 0.0) for _ in candle_indexes]
     while mode == "candle":
-        for index in range(0, pixels.count(), params["sparsity"]):
-            flicker_states[index] = flicker_update(
-                flicker_states[index],
-                params["amp"],
-                params["decay"],
-                float(params["period"]) / params["interval"]
-            )
-            rgb = [int(params[key] * (1 + flicker_states[index])) for key in "rgb"]
+        for index, state in zip(candle_indexes, candle_states):
+            state.update(params["rand_walk"], params["flicker"])
+            rgb = state.to_rgb(params["color"])
             pixels.set_pixel(index, Adafruit_WS2801.RGB_to_color(*rgb))
         time.sleep(params["period"])
         pixels.show()
